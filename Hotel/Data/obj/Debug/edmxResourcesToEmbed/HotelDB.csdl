@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DBHotelModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Rates">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Season" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Cost" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <NavigationProperty Name="Reservations" Relationship="Self.FK_RateId_Reservations" FromRole="Rates" ToRole="Reservations" />
+  </EntityType>
+  <EntityType Name="Reservations">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DateIn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="DateOut" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="RoomId" Type="Int32" Nullable="false" />
+    <Property Name="RateId" Type="Int32" Nullable="false" />
+    <Property Name="QuantityPeople" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Rates" Relationship="Self.FK_RateId_Reservations" FromRole="Reservations" ToRole="Rates" />
+    <NavigationProperty Name="Rooms" Relationship="Self.FK_RoomId_Reservations" FromRole="Reservations" ToRole="Rooms" />
+  </EntityType>
+  <EntityType Name="Rooms">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UbicationId" Type="Int32" Nullable="false" />
+    <Property Name="TypeRoomId" Type="Int32" Nullable="false" />
+    <Property Name="QuantityRoom" Type="Int32" Nullable="false" />
+    <Property Name="MaximumQuota" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Reservations" Relationship="Self.FK_RoomId_Reservations" FromRole="Rooms" ToRole="Reservations" />
+    <NavigationProperty Name="TypeRooms" Relationship="Self.FK_TypeRoomId_Rooms" FromRole="Rooms" ToRole="TypeRooms" />
+    <NavigationProperty Name="Ubications" Relationship="Self.FK_UbicationId_Rooms" FromRole="Rooms" ToRole="Ubications" />
+  </EntityType>
+  <EntityType Name="TypeRooms">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TypeRoomName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Rooms" Relationship="Self.FK_TypeRoomId_Rooms" FromRole="TypeRooms" ToRole="Rooms" />
+  </EntityType>
+  <EntityType Name="Ubications">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Ubication" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Rooms" Relationship="Self.FK_UbicationId_Rooms" FromRole="Ubications" ToRole="Rooms" />
+  </EntityType>
+  <Association Name="FK_RateId_Reservations">
+    <End Role="Rates" Type="Self.Rates" Multiplicity="1" />
+    <End Role="Reservations" Type="Self.Reservations" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Rates">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Reservations">
+        <PropertyRef Name="RateId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RoomId_Reservations">
+    <End Role="Rooms" Type="Self.Rooms" Multiplicity="1" />
+    <End Role="Reservations" Type="Self.Reservations" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Rooms">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Reservations">
+        <PropertyRef Name="RoomId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TypeRoomId_Rooms">
+    <End Role="TypeRooms" Type="Self.TypeRooms" Multiplicity="1" />
+    <End Role="Rooms" Type="Self.Rooms" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TypeRooms">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Rooms">
+        <PropertyRef Name="TypeRoomId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UbicationId_Rooms">
+    <End Role="Ubications" Type="Self.Ubications" Multiplicity="1" />
+    <End Role="Rooms" Type="Self.Rooms" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ubications">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Rooms">
+        <PropertyRef Name="UbicationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DBHotelEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Rates" EntityType="Self.Rates" />
+    <EntitySet Name="Reservations" EntityType="Self.Reservations" />
+    <EntitySet Name="Rooms" EntityType="Self.Rooms" />
+    <EntitySet Name="TypeRooms" EntityType="Self.TypeRooms" />
+    <EntitySet Name="Ubications" EntityType="Self.Ubications" />
+    <AssociationSet Name="FK_RateId_Reservations" Association="Self.FK_RateId_Reservations">
+      <End Role="Rates" EntitySet="Rates" />
+      <End Role="Reservations" EntitySet="Reservations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RoomId_Reservations" Association="Self.FK_RoomId_Reservations">
+      <End Role="Rooms" EntitySet="Rooms" />
+      <End Role="Reservations" EntitySet="Reservations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TypeRoomId_Rooms" Association="Self.FK_TypeRoomId_Rooms">
+      <End Role="TypeRooms" EntitySet="TypeRooms" />
+      <End Role="Rooms" EntitySet="Rooms" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UbicationId_Rooms" Association="Self.FK_UbicationId_Rooms">
+      <End Role="Ubications" EntitySet="Ubications" />
+      <End Role="Rooms" EntitySet="Rooms" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

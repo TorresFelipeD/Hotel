@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DBHotelModelStoreContainer" CdmEntityContainer="DBHotelEntities">
+    <EntitySetMapping Name="Rates">
+      <EntityTypeMapping TypeName="DBHotelModel.Rates">
+        <MappingFragment StoreEntitySet="Rates">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Season" ColumnName="Season" />
+          <ScalarProperty Name="Cost" ColumnName="Cost" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Reservations">
+      <EntityTypeMapping TypeName="DBHotelModel.Reservations">
+        <MappingFragment StoreEntitySet="Reservations">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="DateIn" ColumnName="DateIn" />
+          <ScalarProperty Name="DateOut" ColumnName="DateOut" />
+          <ScalarProperty Name="RoomId" ColumnName="RoomId" />
+          <ScalarProperty Name="RateId" ColumnName="RateId" />
+          <ScalarProperty Name="QuantityPeople" ColumnName="QuantityPeople" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Rooms">
+      <EntityTypeMapping TypeName="DBHotelModel.Rooms">
+        <MappingFragment StoreEntitySet="Rooms">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UbicationId" ColumnName="UbicationId" />
+          <ScalarProperty Name="TypeRoomId" ColumnName="TypeRoomId" />
+          <ScalarProperty Name="QuantityRoom" ColumnName="QuantityRoom" />
+          <ScalarProperty Name="MaximumQuota" ColumnName="MaximumQuota" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TypeRooms">
+      <EntityTypeMapping TypeName="DBHotelModel.TypeRooms">
+        <MappingFragment StoreEntitySet="TypeRooms">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="TypeRoomName" ColumnName="TypeRoomName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Ubications">
+      <EntityTypeMapping TypeName="DBHotelModel.Ubications">
+        <MappingFragment StoreEntitySet="Ubications">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Ubication" ColumnName="Ubication" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

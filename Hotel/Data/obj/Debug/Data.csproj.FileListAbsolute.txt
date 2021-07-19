@@ -1,0 +1,12 @@
+C:\PROYECTOS\Axede_PruebaTecnica\Hotel\Data\bin\Debug\Data.dll.config
+C:\PROYECTOS\Axede_PruebaTecnica\Hotel\Data\bin\Debug\Data.dll
+C:\PROYECTOS\Axede_PruebaTecnica\Hotel\Data\bin\Debug\Data.pdb
+C:\PROYECTOS\Axede_PruebaTecnica\Hotel\Data\bin\Debug\EntityFramework.dll
+C:\PROYECTOS\Axede_PruebaTecnica\Hotel\Data\bin\Debug\EntityFramework.SqlServer.dll
+C:\PROYECTOS\Axede_PruebaTecnica\Hotel\Data\bin\Debug\EntityFramework.xml
+C:\PROYECTOS\Axede_PruebaTecnica\Hotel\Data\bin\Debug\EntityFramework.SqlServer.xml
+C:\PROYECTOS\Axede_PruebaTecnica\Hotel\Data\obj\Debug\Data.csproj.AssemblyReference.cache
+C:\PROYECTOS\Axede_PruebaTecnica\Hotel\Data\obj\Debug\Data.csproj.CoreCompileInputs.cache
+C:\PROYECTOS\Axede_PruebaTecnica\Hotel\Data\obj\Debug\Data.csproj.CopyComplete
+C:\PROYECTOS\Axede_PruebaTecnica\Hotel\Data\obj\Debug\Data.dll
+C:\PROYECTOS\Axede_PruebaTecnica\Hotel\Data\obj\Debug\Data.pdb
