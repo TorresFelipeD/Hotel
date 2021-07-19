@@ -95,3 +95,8 @@ C:\PROYECTOS\Axede_PruebaTecnica\Hotel\Hotel\obj\Debug\Hotel.csproj.CoreCompileI
 C:\PROYECTOS\Axede_PruebaTecnica\Hotel\Hotel\obj\Debug\Hotel.csproj.CopyComplete
 C:\PROYECTOS\Axede_PruebaTecnica\Hotel\Hotel\obj\Debug\Hotel.dll
 C:\PROYECTOS\Axede_PruebaTecnica\Hotel\Hotel\obj\Debug\Hotel.pdb
+C:\PROYECTOS\Axede_PruebaTecnica\Hotel\Hotel\bin\Data.dll
+C:\PROYECTOS\Axede_PruebaTecnica\Hotel\Hotel\bin\EntityFramework.dll
+C:\PROYECTOS\Axede_PruebaTecnica\Hotel\Hotel\bin\Data.pdb
+C:\PROYECTOS\Axede_PruebaTecnica\Hotel\Hotel\bin\Data.dll.config
+C:\PROYECTOS\Axede_PruebaTecnica\Hotel\Hotel\bin\EntityFramework.xml

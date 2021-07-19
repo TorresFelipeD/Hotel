@@ -31,5 +31,21 @@ namespace Data
                 return context.Reservations.ToList();
             }
         }
+
+        public List<TypeRooms> GetTypeRooms()
+        {
+            using (var context = new DBHotelEntities())
+            {
+                return context.TypeRooms.ToList();
+            }
+        }
+
+        public List<Ubications> GetUbications()
+        {
+            using (var context = new DBHotelEntities())
+            {
+                return context.Ubications.ToList();
+            }
+        }
     }
 }
